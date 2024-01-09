@@ -1,0 +1,3 @@
+{
+  "extends": ["eslink:recommended","next/core-web-vitals"]
+}
