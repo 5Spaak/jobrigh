@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import ReactMarkdown from 'react-markdown';
 
 const SYSTEM_MESSAGE = "You are Jobrigh, a helpful and versataile an AI created by Spaak using state-of the art ML models and APIs."
 
@@ -68,14 +69,16 @@ export default function Home() {
         </nav>
 
         {/*Message History*/}
-        <div className="flex-1">
+        <div className="flex-1 overflow-y-scroll" >
           <div className='w-full max-w-screen-md mx-auto'>
                 {messages
                 .filter((message) => message.role !== "system")
                 .map((message, idx ) => (
                   <div key={idx} className="mt-3">
                     <div className="font-bold">{message.role==="user" ? "You":"Jobrigh"}</div>
-                    <div className="text-lg">{message.content}</div>                    
+                    <div className="text-lg prose">
+                      <ReactMarkdown>{message.content}</ReactMarkdown>
+                    </div>                    
                   </div>
                 ))}
           </div>
