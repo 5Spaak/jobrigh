@@ -74,7 +74,7 @@ export default function Home() {
                 {messages
                 .filter((message) => message.role !== "system")
                 .map((message, idx ) => (
-                  <div key={idx} className="mt-3">
+                  <div key={idx} className="my-9">
                     <div className="font-bold">{message.role==="user" ? "You":"Jobrigh"}</div>
                     <div className="text-lg prose">
                       <ReactMarkdown>{message.content}</ReactMarkdown>
